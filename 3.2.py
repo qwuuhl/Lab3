@@ -10,9 +10,15 @@
 a = int(input("Введіть перше чотирицифрове число a: "))
 b = int(input("Введіть друге чотирицифрове число b: "))
 
-print(f"Чотирицифрові числа в інтервалі від {a} до {b}, які містять строго три однакові цифри:")
+print(
+    f"Чотирицифрові числа в інтервалі від {a} до {b}, які містять строго три однакові цифри:")
 
 for num in range(a, b + 1):
     num_str = str(num)
-    if len(set(num_str)) == 2 and num_str.count(num_str[0]) == 3:
+    if (num_str[0] == num_str[1] == num_str[2]
+        or num_str[1] == num_str[2] == num_str[3]
+        or num_str[0] == num_str[2] == num_str[3]
+        or num_str[0] == num_str[1] == num_str[3]) \
+        and len(set(num_str)) != 1:
         print(num)
+
